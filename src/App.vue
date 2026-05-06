@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import RoomAssistantCard from './components/RoomAssistantCard.vue'
 import RoomMaterialSelector from './components/RoomMaterialSelector.vue'
 import RoomSelector from './components/RoomSelector.vue'
 
@@ -9,26 +8,19 @@ const selections = reactive({})
 </script>
 
 <template>
-  <main class="page">
-    <div class="stack">
+  <main class="mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center px-4 py-10 sm:py-12">
+    <header class="text-center">
+      <h1 class="text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
+        Room Materials & Furniture Selection<br />Assistant
+      </h1>
+      <p class="mx-auto mt-3 max-w-xl text-sm text-slate-500">
+        Pick a space, choose finishes and pieces, then generate a quick mocked AI readout — all in the browser.
+      </p>
+    </header>
+
+    <section class="mt-8 w-full space-y-5">
       <RoomSelector v-model="selectedRoom" />
       <RoomMaterialSelector :room="selectedRoom" :selections="selections" />
-      <RoomAssistantCard :room-name="selectedRoom" />
-    </div>
+    </section>
   </main>
 </template>
-
-<style scoped>
-.page {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 32px 16px;
-}
-
-.stack {
-  width: min(720px, calc(100vw - 32px));
-  display: grid;
-  gap: 14px;
-}
-</style>

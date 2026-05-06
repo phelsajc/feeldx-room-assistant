@@ -46,29 +46,26 @@ watchEffect(() => {
 </script>
 
 <template>
-  <section
-    class="w-full rounded-[18px] border border-white/10 bg-white/5 shadow-[var(--shadow)] backdrop-blur-[10px]"
-    aria-label="Material and furniture selector"
-  >
-    <header class="flex items-baseline justify-between gap-3 border-b border-white/10 p-4 sm:p-[18px]">
-      <div>
-        <p class="text-xs uppercase tracking-[0.3px] text-white/70">Materials & furniture</p>
-        <h2 class="mt-2 text-lg font-semibold tracking-[0.2px] text-white/90">{{ room }}</h2>
-      </div>
+  <section class="rounded-xl border border-slate-200 bg-white shadow-sm" aria-label="Material and furniture selector">
+    <header class="px-6 pb-3 pt-5">
+      <h2 class="text-sm font-semibold text-slate-900">2. Materials & furniture</h2>
+      <p class="mt-1 text-xs text-slate-500">
+        Options update for the selected room. Each field uses the same palette (wood, marble, tile, fabric, and more).
+      </p>
     </header>
 
-    <div class="p-4 sm:px-[18px] sm:pb-[18px] sm:pt-[14px]">
-      <p v-if="fieldsForRoom.length === 0" class="text-sm text-white/70">No selections defined for this room yet.</p>
+    <div class="px-6 pb-6">
+      <p v-if="fieldsForRoom.length === 0" class="text-sm text-slate-500">No selections defined for this room yet.</p>
 
-      <div v-else class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label v-for="field in fieldsForRoom" :key="field" class="grid gap-1.5">
-          <span class="text-xs text-white/70">{{ field }}</span>
+          <span class="text-xs font-semibold text-slate-700">{{ field }}</span>
           <select
-            class="h-[42px] w-full rounded-[14px] border border-white/15 bg-black/20 px-3 text-white/90 outline-none focus:border-white/25"
+            class="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
             :value="selections[room]?.[field] ?? ''"
             @change="selections[room][field] = $event.target.value"
           >
-            <option value="" disabled>Select {{ field }}</option>
+            <option value="" disabled>Select</option>
             <option v-for="opt in OPTIONS[field] ?? []" :key="opt" :value="opt">{{ opt }}</option>
           </select>
         </label>
