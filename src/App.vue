@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import RoomMaterialSelector from './components/RoomMaterialSelector.vue'
 import RoomSelector from './components/RoomSelector.vue'
+import SummaryPanel from './components/SummaryPanel.vue'
 
 const selectedRoom = ref('Living Room')
 const selections = reactive({})
@@ -21,6 +22,7 @@ const selections = reactive({})
     <section class="mt-8 w-full space-y-5">
       <RoomSelector v-model="selectedRoom" />
       <RoomMaterialSelector :room="selectedRoom" :selections="selections" />
+      <SummaryPanel :room="selectedRoom" :selections="selections" />
     </section>
   </main>
 </template>
