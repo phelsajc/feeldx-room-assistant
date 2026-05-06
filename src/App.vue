@@ -1,15 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 import RoomAssistantCard from './components/RoomAssistantCard.vue'
+import RoomMaterialSelector from './components/RoomMaterialSelector.vue'
 import RoomSelector from './components/RoomSelector.vue'
 
 const selectedRoom = ref('Living Room')
+const selections = reactive({})
 </script>
 
 <template>
   <main class="page">
     <div class="stack">
       <RoomSelector v-model="selectedRoom" />
+      <RoomMaterialSelector :room="selectedRoom" :selections="selections" />
       <RoomAssistantCard :room-name="selectedRoom" />
     </div>
   </main>
