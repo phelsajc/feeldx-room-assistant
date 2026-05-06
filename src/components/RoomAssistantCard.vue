@@ -1,7 +1,13 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-const roomName = ref('Living Room')
+defineProps({
+  roomName: {
+    type: String,
+    required: true,
+  },
+})
+
 const status = ref('Idle')
 const lastUpdated = ref(new Date())
 
