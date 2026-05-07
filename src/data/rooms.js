@@ -1,5 +1,5 @@
 /**
- * Material option: value is stored; isDark used for “room may feel darker” rule.
+ * isDark used for “room may feel darker” rule.
  */
 export const MATERIAL_OPTIONS = [
   { value: '', label: '— Select —', isDark: false },
@@ -29,8 +29,7 @@ export const ROOM_TYPES = [
 ]
 
 /**
- * Keys per room: id -> { key, label }[]
- * `lightingKey` marks the field used for lighting rule (if present in room).
+ * lightingKey marks the field used for lighting rule (if present in room).
  */
 export const ROOM_ITEMS = {
   kitchen: [
@@ -65,10 +64,8 @@ export const ROOM_ITEMS = {
   ],
 }
 
-/** Keys that count as “lighting” for the suggestion rule */
 export const LIGHTING_KEYS = new Set(['lighting', 'fixtures'])
 
-/** Keys checked for dark + dark flooring / wall pairing */
 export const FLOORING_KEY = 'flooring'
 export const WALL_KEY = 'wallFinish'
 
