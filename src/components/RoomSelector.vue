@@ -1,5 +1,5 @@
 <script setup>
-const ROOMS = ['Kitchen', 'Bathroom', 'Living Room', 'Bedroom', 'Laundry']
+import { ROOM_TYPES } from '../data/rooms'
 
 defineProps({
   modelValue: {
@@ -21,18 +21,18 @@ defineEmits(['update:modelValue'])
     <div class="px-6 pb-6">
       <div class="flex flex-wrap gap-2" role="group" aria-label="Quick room buttons">
         <button
-          v-for="room in ROOMS"
-          :key="room"
+          v-for="r in ROOM_TYPES"
+          :key="r.id"
           type="button"
           class="rounded-lg border px-3 py-2 text-xs font-semibold transition"
           :class="
-            room === modelValue
+            r.label === modelValue
               ? 'border-emerald-600 bg-emerald-600 text-white shadow-sm'
               : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
           "
-          @click="$emit('update:modelValue', room)"
+          @click="$emit('update:modelValue', r.label)"
         >
-          {{ room }}
+          {{ r.label }}
         </button>
       </div>
     </div>

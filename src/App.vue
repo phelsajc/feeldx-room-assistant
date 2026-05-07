@@ -3,8 +3,10 @@ import { reactive, ref } from 'vue'
 import RoomMaterialSelector from './components/RoomMaterialSelector.vue'
 import RoomSelector from './components/RoomSelector.vue'
 import SummaryPanel from './components/SummaryPanel.vue'
+import { ROOM_TYPES } from './data/rooms'
 
-const selectedRoom = ref('Living Room')
+const selectedRoom = ref(ROOM_TYPES[0].label)
+/** Per-room keyed by ROOM_TYPES id — see src/data/rooms.js */
 const selections = reactive({})
 </script>
 
