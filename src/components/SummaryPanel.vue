@@ -27,7 +27,7 @@ const costEstimate = computed(() => estimateRoomMaterialsCost(roomSelections.val
 function formatUsd(n) {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'PHP',
     maximumFractionDigits: 0,
   }).format(n)
 }
